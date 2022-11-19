@@ -36,12 +36,19 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 // ORIGINAL $routes->get('/', 'Home::index');
-$routes->get('/', 'User::header');
-$routes->get('/login', 'User::login');
-$routes->get('/consulta', 'User::consulta');
+$routes->get('/', 'User::login' ,['as'=> 'login']);
+$routes->get('/consulta', 'User::consulta', ['as'=>'consulta']);
 $routes->post('/login_post','User::login_post',['as'=> 'ulp']);
 $routes->post('/logout','User::logout',['as'=> 'ulo']);
 
+// RUTAS PARA NAVBAR
+$routes->get('/reportes', 'User::reportes' ,['as'=> 'reportes']);
+$routes->get('/Alumnos', 'User::Alumnos' ,['as'=> 'Alumnos']);
+$routes->get('/Avisos', 'User::Avisos' ,['as'=> 'Avisos']);
+$routes->get('/Grupos', 'User::Grupos' ,['as'=> 'Grupos']);
+$routes->get('/Profesores', 'User::Profesores' ,['as'=> 'Profesores']);
+$routes->get('/Salones', 'User::Salones' ,['as'=> 'Salones']);
+$routes->get('/inicio', 'User::inicio' ,['as'=> 'inicio']);
 
 /*
  * --------------------------------------------------------------------
