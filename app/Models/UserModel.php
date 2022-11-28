@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class UserModel extends Model
 {
-    protected $table = 'usuarios';
+    protected $table = 'salon';
     protected $primaryKey = 'id';
         
     public function select($id = null)
@@ -21,18 +21,5 @@ class UserModel extends Model
         ->first();
     }
 
-    public function insert($data = null, bool $returnID = true)
-    {
-        $userModel = new \App\Models\UserModel();
-        $data = [
-            'nombre' => 'Alan',
-            'AP' => 'Hernandez',
-            'AM' => 'Aguilar',
-            'mail' => 'lodirodi@gmail.com',
-            'password' => 'lodigodi',
-        ];
-        $userModel->insert($data);
-    }
-    
 }
 ?>

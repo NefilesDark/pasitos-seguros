@@ -36,10 +36,11 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 // ORIGINAL $routes->get('/', 'Home::index');
-$routes->get('/', 'User::login' ,['as'=> 'login']);
-$routes->get('/consulta', 'User::consulta', ['as'=>'consulta']);
+$routes->get('/login', 'User::login' ,['as'=> 'login']);
+
 $routes->post('/login_post','User::login_post',['as'=> 'ulp']);
 $routes->post('/logout','User::logout',['as'=> 'ulo']);
+$routes->get('/try', 'User::try');
 
 // RUTAS PARA NAVBAR
 $routes->get('/reportes', 'User::reportes' ,['as'=> 'reportes']);
@@ -49,6 +50,21 @@ $routes->get('/Grupos', 'User::Grupos' ,['as'=> 'Grupos']);
 $routes->get('/Profesores', 'User::Profesores' ,['as'=> 'Profesores']);
 $routes->get('/Salones', 'User::Salones' ,['as'=> 'Salones']);
 $routes->get('/inicio', 'User::inicio' ,['as'=> 'inicio']);
+
+//RUTAS PARA MOSTRAR CRUD
+
+$routes->post('/alta', 'User::showCRUD',['as'=>'showUp']);
+
+
+// RUTAS PARA CRUD
+$routes->post('/consulta', 'CRUD::consulta', ['as'=>'consulta']);
+$routes->post("/actualizar",'User::showCRUD', ['as'=>'actualizar']);
+$routes->post('/down', 'User::showCRUD', ['as'=>'down']);
+$routes->post('/up', 'CRUD::up', ['as'=>'up']);
+
+
+
+
 
 /*
  * --------------------------------------------------------------------

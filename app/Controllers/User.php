@@ -1,13 +1,13 @@
 <?php namespace App\Controllers;
 
 use App\Models\UserModel;
+//use CodeIgniter\HTTP\IncomingRequest;
 
 class User extends BaseController{
     //Variable para probar si es Admin o padre "op"
     
 
     public function login(){
-        echo view("header");
         echo view("index");
     }
 
@@ -16,20 +16,14 @@ class User extends BaseController{
         $op = 1;
         echo view("header");
         if ($op == 1)
-            echo view("/Admin/inicio");
+            echo view("inicio");
         else
-            echo view("/Users/inicio");
+            echo view("inicio");
 
     }
 
     public function logout(){
 
-    }
-
-    public function consulta(){
-        echo view("header");
-        echo view("/consultas");
-    
     }
 
     public function reportes(){
@@ -79,12 +73,44 @@ class User extends BaseController{
 
     public function Salones(){
         $op = 1;
+
         echo view("header");
         if ($op == 1)
             echo view("/Admin/Salones");
         else
             echo view("/Users/Salones");
     }
+
+    public function try(){
+        $consulta = new UserModel();
+        var_dump($consulta->asObject()->findAll());
+    }
+
+    public function showCRUD(){
+        echo view("header");
+        $CRUD = $this->request->getPost('variable');
+
+        switch($CRUD)
+        {
+            case "1":
+                echo view("consultas");
+            break;
+
+            case "2":
+                echo view("Admin/Actualizar_Salon");
+            break;
+
+            case "3":
+                echo view("Admin/Baja_salon");
+            break;
+
+            case "4":
+                $validation = \Config\Services::validation();
+                echo view("Admin/Alta_salon",['validation'=>$validation]);
+            break;
+        }
+    }
+
 }
 
 ?>

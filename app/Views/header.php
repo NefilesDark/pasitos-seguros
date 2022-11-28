@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="/assets/css/Carousel-Hero.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <link rel="stylesheet" href="/assets/css/Navbar-Right-Links-Dark.css">
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
 </head>
 
 <body style="background: linear-gradient(98deg, #325269, white);">

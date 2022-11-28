@@ -1,19 +1,19 @@
+ 
     <div class="container">
         <div class="text-center" style="margin-left: 0px;padding-left: 250px;padding-right: 250px;padding-top: 50px;">
             <div class="table-responsive border-dark shadow">
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th>Column 1</th>
+                            <th>Salones</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <?php foreach ($select as $key => $i):?>
                         <tr>
-                            <td>Cell 1</td>
+                            <td><?= $i->Salon ?></td>
                         </tr>
-                        <tr>
-                            <td>Cell 3</td>
-                        </tr>
+                        <?php endforeach ?>
                     </tbody>
                 </table>
             </div>
