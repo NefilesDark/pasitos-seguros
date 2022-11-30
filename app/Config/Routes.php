@@ -53,13 +53,13 @@ $routes->get('/inicio', 'User::inicio' ,['as'=> 'inicio']);
 
 //RUTAS PARA MOSTRAR CRUD
 
-$routes->post('/alta', 'User::showCRUD',['as'=>'showUp']);
+$routes->post('/accion', 'User::showCRUD',['as'=>'showUp']);
 
 
 // RUTAS PARA CRUD
 $routes->post('/consulta', 'CRUD::consulta', ['as'=>'consulta']);
-$routes->post("/actualizar",'User::showCRUD', ['as'=>'actualizar']);
-$routes->post('/down', 'User::showCRUD', ['as'=>'down']);
+$routes->post("/actualizar",'CRUD::actualizar', ['as'=>'actualizar']);
+$routes->post('/down', 'CRUD::delete', ['as'=>'down']);
 $routes->post('/up', 'CRUD::up', ['as'=>'up']);
 
 

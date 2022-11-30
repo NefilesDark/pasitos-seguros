@@ -16,7 +16,11 @@ class User extends BaseController{
         $op = 1;
         echo view("header");
         if ($op == 1)
+        {
+            session('message');
             echo view("inicio");
+        }
+            
         else
             echo view("inicio");
 
@@ -89,7 +93,7 @@ class User extends BaseController{
     public function showCRUD(){
         echo view("header");
         $CRUD = $this->request->getPost('variable');
-
+        $data = new UserModel();
         switch($CRUD)
         {
             case "1":
@@ -97,11 +101,17 @@ class User extends BaseController{
             break;
 
             case "2":
-                echo view("Admin/Actualizar_Salon");
+                $consulta = [
+                    'select' => $data->selectAll()
+                ];
+                echo view("Admin/Actualizar_Salon",$consulta);
             break;
 
             case "3":
-                echo view("Admin/Baja_salon");
+                $consulta = [
+                    'select' => $data->select()
+                ];
+                echo view("/Admin/Baja_salon",$consulta);
             break;
 
             case "4":

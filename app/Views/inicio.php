@@ -1,3 +1,4 @@
+    <?php session('message'); ?>
     <div class="container">
             <h1 style="text-align: center;margin: 20px;">Bienvenido&nbsp;</h1>
             <div class="d-xl-flex justify-content-xl-center">

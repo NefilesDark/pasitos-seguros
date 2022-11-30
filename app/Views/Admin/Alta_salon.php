@@ -7,7 +7,7 @@
                         <label class="form-label" style="padding-left: 0px;padding-right: 0px;">Salon:</label>
                         <input class="form-control" type="text" id="salon" name="salon">
                         <label class="form-label" style="padding-top: 20px;">Status:</label>
-                        <select class="form-select">
+                        <select class="form-select" name="status">
                             <option value="1" selected="">Habilitado</option>
                             <option value="0">Deshabilitado</option>
                         </select>

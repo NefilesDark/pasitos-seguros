@@ -12,11 +12,17 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td class="text-center">Cell 1</td>
-                                    <td class="text-center"><button class="btn btn-primary" type="submit" style="background: rgb(10,21,37);">^</button></td>
-                                </tr>
-                                <tr></tr>
+                                <?php foreach ($select as $key => $i):?>
+                                        <tr>
+                                            <td class="text-center"><?= $i->Salon?></td>
+                                                <form action="<?=route_to("actualizar")?>" method="post">
+                                                <input type="hidden" name="id" value="<?= $i->idSalon?>" />
+                                                <td class="text-center"><button class="btn btn-primary" type="submit" style="background: rgb(10,21,37);">^</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach?>
+
                             </tbody>
                         </table>
                     </div>

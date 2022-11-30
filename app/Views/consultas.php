@@ -1,4 +1,3 @@
- 
     <div class="container">
         <div class="text-center" style="margin-left: 0px;padding-left: 250px;padding-right: 250px;padding-top: 50px;">
             <div class="table-responsive border-dark shadow">
@@ -19,7 +18,6 @@
             </div>
         </div>
     </div>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
 
 </html>
