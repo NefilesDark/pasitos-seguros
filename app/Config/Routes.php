@@ -49,7 +49,7 @@ $routes->get('/Avisos', 'User::Avisos' ,['as'=> 'Avisos']);
 $routes->get('/Grupos', 'User::Grupos' ,['as'=> 'Grupos']);
 $routes->get('/Profesores', 'User::Profesores' ,['as'=> 'Profesores']);
 $routes->get('/Salones', 'User::Salones' ,['as'=> 'Salones']);
-$routes->get('/inicio', 'User::inicio' ,['as'=> 'inicio']);
+$routes->get('/', 'User::inicio' ,['as'=> 'inicio']);
 
 //RUTAS PARA MOSTRAR CRUD
 
