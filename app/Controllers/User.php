@@ -34,7 +34,7 @@ class User extends BaseController{
         $op = 1;
         echo view("header");
         if ($op == 1)
-            echo view("/Admin/reportes");
+            echo view("/Admin/reportes/reportes");
         else
             echo view("/Users/reportes.php");
     }
@@ -43,16 +43,16 @@ class User extends BaseController{
         $op = 1;
         echo view("header");
         if ($op == 1)
-            echo view("/Admin/Alumnos");
+            echo view("/Admin/Alumnos/Alumnos");
         else
-            echo view("/Users/Alumnos");
+            echo view("/Users/Alumnos/Alumnos");
     }
 
     public function Avisos(){
         $op = 1;
         echo view("header");
         if ($op == 1)
-            echo view("/Admin/Avisos");
+            echo view("/Admin/Avisos/Avisos");
         else
             echo view("/Users/Avisos.php");
     }
@@ -61,18 +61,18 @@ class User extends BaseController{
         $op = 1;
         echo view("header");
         if ($op == 1)
-            echo view("/Admin/Grupos");
+            echo view("/Admin/Grupos/Grupos");
         else
-            echo view("/Users/Grupos");
+            echo view("/Users/Grupos/Grupos");
     }
 
     public function Profesores(){
         $op = 1;
         echo view("header");
         if ($op == 1)
-            echo view("/Admin/Profesores");
+            echo view("/Admin/Profesores/Profesores");
         else
-            echo view("/Users/Profesores");
+            echo view("/Users/Profesores/Profesores");
     }
 
     public function Salones(){
@@ -80,9 +80,9 @@ class User extends BaseController{
 
         echo view("header");
         if ($op == 1)
-            echo view("/Admin/Salones");
+            echo view("/Admin/salones/Salones");
         else
-            echo view("/Users/Salones");
+            echo view("/Users/salones/Salones");
     }
 
     public function try(){
@@ -90,6 +90,7 @@ class User extends BaseController{
         var_dump($consulta->asObject()->findAll());
     }
 
+    //MUESTRA EL CRUD DE SALONES
     public function showCRUD(){
         echo view("header");
         $CRUD = $this->request->getPost('variable');
@@ -104,23 +105,53 @@ class User extends BaseController{
                 $consulta = [
                     'select' => $data->selectAll()
                 ];
-                echo view("Admin/Actualizar_Salon",$consulta);
+                echo view("Admin/salones/Actualizar_Salon",$consulta);
             break;
 
             case "3":
                 $consulta = [
                     'select' => $data->select()
                 ];
-                echo view("/Admin/Baja_salon",$consulta);
+                echo view("/Admin/salones/Baja_salon",$consulta);
             break;
 
             case "4":
                 $validation = \Config\Services::validation();
-                echo view("Admin/Alta_salon",['validation'=>$validation]);
+                echo view("Admin/salones/Alta_salon",['validation'=>$validation]);
             break;
         }
     }
+    //ACCIONES CRUD DE ALUMNOS
+    public function showCRUDa(){
+        echo view("header");
+        $CRUD = $this->request->getPost('variable');
+        $data = new UserModel();
+        switch($CRUD)
+        {
+            case "1":
+                echo view("Admin/Alumnos/consulta");
+            break;
 
+            case "2":
+                $consulta = [
+                    'select' => $data->selectAll()
+                ];
+                echo view("Admin/salones/Actualizar_Alumno",$consulta);
+            break;
+
+            case "3":
+                $consulta = [
+                    'select' => $data->select()
+                ];
+                echo view("/Admin/salones/Baja_Alumno",$consulta);
+            break;
+
+            case "4":
+                //$validation = \Config\Services::validation();
+                echo view("Admin/salones/Alta_Alumno");
+            break;
+        }
+    }
 }
 
 ?>

@@ -49,20 +49,26 @@ $routes->get('/Avisos', 'User::Avisos' ,['as'=> 'Avisos']);
 $routes->get('/Grupos', 'User::Grupos' ,['as'=> 'Grupos']);
 $routes->get('/Profesores', 'User::Profesores' ,['as'=> 'Profesores']);
 $routes->get('/Salones', 'User::Salones' ,['as'=> 'Salones']);
-$routes->get('/', 'User::inicio' ,['as'=> 'inicio']);
+$routes->get('/inicio', 'User::inicio' ,['as'=> 'inicio']);
 
 //RUTAS PARA MOSTRAR CRUD
+    //SALONES
+    $routes->post('/accion', 'User::showCRUD',['as'=>'showUp']);
+    //ALUMNOS
+    $routes->post('/Alumnos/accion', 'User::showCRUDa',['as'=>'showUpA']);
 
-$routes->post('/accion', 'User::showCRUD',['as'=>'showUp']);
 
-
-// RUTAS PARA CRUD
+// RUTAS PARA CRUD Salones
 $routes->post('/consulta', 'CRUD::consulta', ['as'=>'consulta']);
 $routes->post("/actualizar",'CRUD::actualizar', ['as'=>'actualizar']);
 $routes->post('/down', 'CRUD::delete', ['as'=>'down']);
 $routes->post('/up', 'CRUD::up', ['as'=>'up']);
 
-
+//RUTAS PARA CRUD ALUMNOS
+$routes->post('/Alumnos/consulta', 'CRUD::Aconsulta', ['as'=>'Aconsulta']);
+$routes->post("/Alumnos/actualizar",'CRUD::Aactualizar', ['as'=>'Aactualizar']);
+$routes->post('/Alumnos/down', 'CRUD::Adelete', ['as'=>'Adown']);
+$routes->post('/Alumnos/up', 'CRUD::Aup', ['as'=>'Aup']);
 
 
 

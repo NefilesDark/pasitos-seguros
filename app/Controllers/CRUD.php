@@ -36,7 +36,7 @@ class CRUD extends BaseController{
             echo view("header");
             echo view("inicio");
         }else
-            echo "<script>alert('Mamó.');</script>";
+            echo "<script>alert('Error.');</script>";
         
     }
 
@@ -62,7 +62,7 @@ class CRUD extends BaseController{
                     
                     echo view("header");
                     echo view("alert");
-                    echo view("Admin/Salones");
+                    echo view("Admin/salones/Salones");
                     
                 }else{
                     echo "<script>alert('Salon registrado con exito.');</script>";
@@ -77,7 +77,7 @@ class CRUD extends BaseController{
             $error = $validation->listErrors();
             echo view("header");
             //echo view("error",['validation'=>$validation]);
-            echo view("Admin/Alta_salon",['validation'=>$validation]);
+            echo view("Admin/salones/Alta_salon",['validation'=>$validation]);
 
         }
         
@@ -93,7 +93,7 @@ class CRUD extends BaseController{
             $consulta = [
                 'select' => $data->select($id)
             ];
-            echo view("Admin/AS",$consulta);
+            echo view("Admin/salones/AS",$consulta);
         }else{
             $id = $this->request->getPost('id');
             if($this->validate([
@@ -113,7 +113,7 @@ class CRUD extends BaseController{
                 
             }else{
                 echo "<script>alert('Datos erroneos, intentelo nuevamente.');</script>";
-                echo view("Admin/Salones");
+                echo view("Admin/salones/Salones");
     
             }
             
